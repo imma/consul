@@ -4,7 +4,7 @@ function _consul_profile {
   local shome="${_consul_home:="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$PATH"
 
-  export CONSUL_VERSION="0.8.4"
+  export CONSUL_VERSION="0.8.5"
 }
 
 _consul_profile
