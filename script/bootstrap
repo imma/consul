@@ -12,7 +12,7 @@ function bootstrap {
   cache curl "$fnm_consul" "${!url_consul}"
   
   pushd bin
-  unzip -o "/data/cache/curl/$fnm_consul"
+  unzip -o "${CACHE_DIR}/curl/$fnm_consul"
   chmod 755 consul
   popd
 }
