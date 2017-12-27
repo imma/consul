@@ -3,5 +3,7 @@
     "curl",
     "facts"
   ],
-  "versions": {}
+  "versions": {
+    "consul": "hashicorp/consul"
+  }
 }
