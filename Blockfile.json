@@ -1,7 +1,6 @@
 {
   "require": [
-    "curl",
-    "facts"
+    "curl"
   ],
   "versions": {
     "consul": "hashicorp/consul"
