@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   consul:
-    build: .
+    build: consul
     restart: always
     network_mode: bridge
     env_file:
