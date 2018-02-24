@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+  consul:
+    build: .
+    restart: always
+    network_mode: bridge
+    ports:
+      - 8500
+    labels:
+      SERVICE_3000_CHECK_TCP: "true"
+      SERVICE_3000_CHECK_INTERVAL: "60s"
+      SERVICE_3000_NAME: "imma-consul"
+      SERVICE_3000_TAGS: "urlprefix-imma-consul.*/"
+    volumes:
+      - type: volume
+        source: consul
+        target: /consul
+        volume:
+          nocopy: true
+volumes:
+  consul:

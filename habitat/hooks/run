@@ -1,0 +1,18 @@
+#!/bin/bash -xe
+
+exec 2>&1
+
+main() {
+  CONSUL_BIND_INTERFACE=eth0
+  CONSUL_BIND_ADDRESS="$(ip -o -6 addr list $CONSUL_BIND_INTERFACE | grep global | awk '{print $4}' | cut -d/ -f1)"
+  CONSUL_DATA_DIR=/consul/data
+  CONSUL_CONFIG_DIR=/consul/config
+  CONSUL_LOCAL_CONFIG='{}'
+
+  mkdir -p "${CONSUL_CONFIG_DIR}"
+  echo "$CONSUL_LOCAL_CONFIG" > "${CONSUL_CONFIG_DIR}/local.json"
+
+  exec consul agent -server -data-dir="${CONSUL_DATA_DIR}" -config-dir="${CONSUL_CONFIG_DIR}" -bind="${CONSUL_BIND_ADDRESS}" --client=0.0.0.0 "$@"
+}
+
+main "$@"
