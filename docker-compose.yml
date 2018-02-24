@@ -5,6 +5,8 @@ services:
     build: .
     restart: always
     network_mode: bridge
+    env_file:
+      - .env
     ports:
       - 8500
     labels:

@@ -12,9 +12,7 @@ main() {
   mkdir -p "${CONSUL_CONFIG_DIR}"
   echo "$CONSUL_LOCAL_CONFIG" > "${CONSUL_CONFIG_DIR}/local.json"
 
-  echo "recv_buffer = {{cfg.recv_buffer}}"
-  env
-  exec consul agent -server -data-dir="${CONSUL_DATA_DIR}" -config-dir="${CONSUL_CONFIG_DIR}" -bind="${CONSUL_BIND_ADDRESS}" --client=0.0.0.0 "$@"
+  exec consul agent -server -data-dir="${CONSUL_DATA_DIR}" -config-dir="${CONSUL_CONFIG_DIR}" -bind="${CONSUL_BIND_ADDRESS}" --client=0.0.0.0 {{cfg.args}} "$@"
 }
 
 main "$@"
