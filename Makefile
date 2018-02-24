@@ -13,6 +13,7 @@ export:
 	-hab studio clone run hab pkg export docker $(pkg)
 
 up:
+	$(MAKE) down
 	docker-compose build
 	docker-compose up $(compose)
 
@@ -24,4 +25,4 @@ quickly:
 	$(MAKE) quickly_
 
 quickly_:
-	$(MAKE) export pkg=$(shell ls -thd results/*hart | head -1)
+	$(MAKE) export up pkg=$(shell ls -thd results/*hart | head -1) 
