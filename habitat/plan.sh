@@ -8,10 +8,6 @@ pkg_deps=(
   core/iproute2
 )
 
-do_prepare() {
-  return 0
-}
-
 do_build() {
   return 0
 }
