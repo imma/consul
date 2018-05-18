@@ -3,6 +3,8 @@
 function _consul_profile {
   local shome="${_consul_home:="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$PATH"
+
+  export CONSUL_UI_BETA=1
 }
 
 _consul_profile

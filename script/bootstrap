@@ -15,6 +15,10 @@ function bootstrap {
   unzip -o "${CACHE_DIR}/curl/$fnm_consul"
   chmod 755 consul
   popd
+
+  export GOPATH="$shome"
+  go get -u github.com/hashicorp/go-discover/cmd/discover
+  rm -rf "$shome/src"
 }
 
 bootstrap
